@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Spawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
-    
+    enum TypeOfEnemies
+    {
+        Junior,
+        Middle,
+        Senior
+    }
 
     [SerializeField] public GameObject[] EnemyPrefabs;
     [SerializeField] public GameObject CurrentEnemyPrefab;
@@ -12,12 +17,11 @@ public abstract class Spawner : MonoBehaviour
     [SerializeField] private float _intervalSpawnTime;
 
     [SerializeField] private int _countEnemyWave = 5;
-    [SerializeField] private int _currentCountEnemy = 0;
 
     [SerializeField] private Transform[] _waypointsOfSpawn;
     [SerializeField] private GameObject _canvas;
 
-
+    [SerializeField]private TypeOfEnemies _typeOfEnemies;
 
     public virtual void Start()
     {
@@ -28,7 +32,6 @@ public abstract class Spawner : MonoBehaviour
     public virtual void SpawnEnemy()
     {
         GameObject enemy = Instantiate(CurrentEnemyPrefab, transform.position, Quaternion.identity);
-        _currentCountEnemy++;
 
         enemy.GetComponent<Enemy>().waypoints = _waypointsOfSpawn;
         enemy.GetComponent<HpBar>().canvas = _canvas;
@@ -46,6 +49,20 @@ public abstract class Spawner : MonoBehaviour
 
     public virtual void Initialize()
     {
-        CurrentEnemyPrefab = EnemyPrefabs[0];
+        switch (_typeOfEnemies)
+        {
+            case TypeOfEnemies.Junior:
+                CurrentEnemyPrefab = EnemyPrefabs[0];
+                break;
+            case TypeOfEnemies.Middle:
+                CurrentEnemyPrefab = EnemyPrefabs[1];
+                break;
+            case TypeOfEnemies.Senior:
+                CurrentEnemyPrefab = EnemyPrefabs[2];
+                break;
+        }
+        
     }
+
+    
 }

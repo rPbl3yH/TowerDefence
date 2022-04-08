@@ -8,6 +8,7 @@ public class Enemy : Character
     public Transform[] waypoints;
     [SerializeField] public int DamageToBase; 
     [SerializeField] int currentIndexWaypoint = 0;
+    public int Money;
 
     public virtual void Update()
     {
@@ -32,6 +33,10 @@ public class Enemy : Character
     }
     public override void Death()
     {
+        GameController controller = GameObject.FindGameObjectWithTag("GameController").
+            GetComponent<GameController>();
+        controller.AddMoney(Money);
+
         Destroy(GetComponent<HpBar>().hpText);
         base.Death();
     }

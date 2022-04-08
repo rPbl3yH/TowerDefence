@@ -6,18 +6,16 @@ public class Junior : Enemy
 {
     public override void Initialize()
     {
+        base.Initialize();
         MaxHp = 10;
         Speed = 5;
+        Money = 2;
     }
 
     private void Awake()
     {
         Initialize();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    
 
 }

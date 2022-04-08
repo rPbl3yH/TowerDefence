@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 73374510}
   - component: {fileID: 73374509}
   - component: {fileID: 73374508}
-  - component: {fileID: 73374507}
   - component: {fileID: 73374511}
   m_Layer: 0
   m_Name: SpawnPoint
@@ -158,30 +157,6 @@ Transform:
   m_Father: {fileID: 145322839}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &73374507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73374505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86e7b94522123486ea98a930a75862b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 732437650804981075, guid: dd400d1194d724e0d8b366e5b3f2d6c3, type: 3}
-  _startTime: 1
-  _intervalSpawnTime: 2
-  _countEnemyWave: 10
-  _currentCountEnemy: 0
-  _waypointsOfSpawn:
-  - {fileID: 302619090}
-  - {fileID: 112532489}
-  - {fileID: 1874958891}
-  - {fileID: 1080700943}
-  - {fileID: 1359883142}
-  _canvas: {fileID: 1594917640}
 --- !u!64 &73374508
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -254,18 +229,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 73374505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 664d1b25bdd0248c7b8a643f3d39005f, type: 3}
+  m_Script: {fileID: 11500000, guid: 39b52feb78ce74034a746bb4a1586adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefabs:
+  - {fileID: 732437650804981075, guid: 42453fd0233da4dfb8ce8ccff61a9797, type: 3}
   - {fileID: 732437650804981075, guid: dd400d1194d724e0d8b366e5b3f2d6c3, type: 3}
   - {fileID: 732437650804981075, guid: 4ec7fb7f8c0374f39a85409679612adb, type: 3}
-  - {fileID: 732437650804981075, guid: 42453fd0233da4dfb8ce8ccff61a9797, type: 3}
   CurrentEnemyPrefab: {fileID: 0}
   _startTime: 2
   _intervalSpawnTime: 4
   _countEnemyWave: 5
-  _currentCountEnemy: 0
   _waypointsOfSpawn:
   - {fileID: 302619090}
   - {fileID: 112532489}
@@ -273,6 +247,7 @@ MonoBehaviour:
   - {fileID: 1080700943}
   - {fileID: 1359883142}
   _canvas: {fileID: 1594917640}
+  _typeOfEnemies: 0
 --- !u!1 &91458323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,7 +1295,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 412323499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c4b2ac0809874314b92e1eefcb56417, type: 3}
+  m_Script: {fileID: 11500000, guid: 39b52feb78ce74034a746bb4a1586adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefabs:
@@ -1331,7 +1306,6 @@ MonoBehaviour:
   _startTime: 1
   _intervalSpawnTime: 3
   _countEnemyWave: 5
-  _currentCountEnemy: 0
   _waypointsOfSpawn:
   - {fileID: 276187608}
   - {fileID: 2013281726}
@@ -1339,6 +1313,7 @@ MonoBehaviour:
   - {fileID: 1233201510}
   - {fileID: 1359883142}
   _canvas: {fileID: 1594917640}
+  _typeOfEnemies: 1
 --- !u!1001 &427791282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1661,9 +1636,10 @@ GameObject:
   m_Component:
   - component: {fileID: 630325010}
   - component: {fileID: 630325009}
+  - component: {fileID: 630325011}
   m_Layer: 0
   m_Name: GameHelper
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1778,6 +1754,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &630325011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630325008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6f326204c4b484cb35918f80ea1b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyText: {fileID: 2122644213}
+  _money: 0
 --- !u!1 &647529219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,6 +3474,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1469855715}
+  - {fileID: 2122644212}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3599,7 +3590,6 @@ GameObject:
   - component: {fileID: 1728247226}
   - component: {fileID: 1728247225}
   - component: {fileID: 1728247224}
-  - component: {fileID: 1728247223}
   - component: {fileID: 1728247227}
   m_Layer: 0
   m_Name: SpawnPoint
@@ -3622,26 +3612,6 @@ Transform:
   m_Father: {fileID: 574760878}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1728247223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728247221}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86e7b94522123486ea98a930a75862b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 732437650804981075, guid: dd400d1194d724e0d8b366e5b3f2d6c3, type: 3}
-  _startTime: 1
-  _intervalSpawnTime: 2
-  _countEnemyWave: 10
-  _currentCountEnemy: 0
-  _waypointsOfSpawn:
-  - {fileID: 1359883142}
-  _canvas: {fileID: 1594917640}
 --- !u!64 &1728247224
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3714,21 +3684,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1728247221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a64f4ead8a7bf41e0bd9b8450a637467, type: 3}
+  m_Script: {fileID: 11500000, guid: 39b52feb78ce74034a746bb4a1586adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefabs:
+  - {fileID: 732437650804981075, guid: 42453fd0233da4dfb8ce8ccff61a9797, type: 3}
   - {fileID: 732437650804981075, guid: dd400d1194d724e0d8b366e5b3f2d6c3, type: 3}
   - {fileID: 732437650804981075, guid: 4ec7fb7f8c0374f39a85409679612adb, type: 3}
-  - {fileID: 732437650804981075, guid: 42453fd0233da4dfb8ce8ccff61a9797, type: 3}
   CurrentEnemyPrefab: {fileID: 0}
-  _startTime: 1
-  _intervalSpawnTime: 3
-  _countEnemyWave: 3
-  _currentCountEnemy: 0
+  _startTime: 2
+  _intervalSpawnTime: 4
+  _countEnemyWave: 5
   _waypointsOfSpawn:
   - {fileID: 1359883142}
   _canvas: {fileID: 1594917640}
+  _typeOfEnemies: 2
 --- !u!1 &1835056984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4585,6 +4555,85 @@ Transform:
   m_Father: {fileID: 1448797214}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2122644211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2122644212}
+  - component: {fileID: 2122644214}
+  - component: {fileID: 2122644213}
+  m_Layer: 5
+  m_Name: MoneyText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2122644212
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122644211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1594917644}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 55, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2122644213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122644211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.63169324, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &2122644214
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122644211}
+  m_CullTransparentMesh: 1
 --- !u!1 &2124562451
 GameObject:
   m_ObjectHideFlags: 0
