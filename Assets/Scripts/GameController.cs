@@ -35,15 +35,7 @@ public class GameController : MonoBehaviour
 
     public void SetTower(Tower tower)
     {
-        for (int i = 0; i < _typeOfTowers.Length; i++)
-        {
-            if (_typeOfTowers[i].GetComponent(tower.ToString()))
-            {
-                _currentTower = _typeOfTowers[i];
-                break;
-            }
-        }
-        
+        _currentTower = tower.GetGameobjectType();
     }
 
     public void Buy(int cost)

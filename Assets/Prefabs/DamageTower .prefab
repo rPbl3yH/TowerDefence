@@ -204,16 +204,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2494403611737149634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cfad7f6e562045e8a4a5a20fe099176, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b47ed3ec0955434f872178a072bdae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHp: 0
   CurrentHP: 0
+  Damage: 20
+  Cost: 50
   bulletPrefab: {fileID: 6864749510564332591, guid: d689f0035479744e49c1198fa6f9d630, type: 3}
   pivotTower: {fileID: 7631874245296845155}
   gunOfTower: {fileID: 8921437812849958148}
   currentTarget: {fileID: 0}
-  shootInteval: 0.5
+  shootInteval: 1.5
   canShoot: 1
 --- !u!82 &2071996277257234840
 AudioSource:

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : Building
+public abstract class Tower : Building
 {
     [SerializeField] public int Damage, Cost;
     
@@ -18,6 +18,11 @@ public class Tower : Building
 
 
     [SerializeField] bool canShoot = true;
+
+    public virtual void Initialize()
+    {
+
+    }
 
     void Start()
     {
@@ -57,8 +62,11 @@ public class Tower : Building
 
     }
 
-    public virtual void Initialize()
+    public virtual GameObject GetGameobjectType()
     {
-
+        return gameObject;
     }
+
+    
+
 }

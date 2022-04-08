@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FastTower : Tower
 {
+    
+
     public override void Initialize()
     {
         Cost = 40;
