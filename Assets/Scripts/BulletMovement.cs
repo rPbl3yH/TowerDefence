@@ -33,7 +33,7 @@ public class BulletMovement : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().GiveDamage(damage);
+            other.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }
 

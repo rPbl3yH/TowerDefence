@@ -24,6 +24,6 @@ public class HpBar : MonoBehaviour
         hpText.transform.SetParent(canvas.transform);
         hpText.transform.position = Camera.main.WorldToScreenPoint(enemy.transform.position) + new Vector3(0,10,0);
 
-        hpText.GetComponent<Text>().text = enemy.currentHp.ToString();
+        hpText.GetComponent<Text>().text = enemy.CurrentHp.ToString();
     }
 }

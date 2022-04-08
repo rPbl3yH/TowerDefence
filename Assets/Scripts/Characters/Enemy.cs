@@ -1,26 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Character
 {
-    public float speed;
-
     public Transform[] waypoints;
-
-    public int currentHp = 30;
-
-    public GameObject hpPrefab;
+    [SerializeField] public int DamageToBase; 
     [SerializeField] int currentIndexWaypoint = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         Transform currentWayPoint = waypoints[currentIndexWaypoint];
 
@@ -28,7 +17,7 @@ public class Enemy : MonoBehaviour
         transform.position = Vector3.MoveTowards(
             transform.position,
             currentWayPoint.position,
-            Time.deltaTime * speed
+            Time.deltaTime * Speed
             );
 
         if(Vector3.Distance(transform.position, currentWayPoint.position) < 0.1)
@@ -36,26 +25,18 @@ public class Enemy : MonoBehaviour
             currentIndexWaypoint++;
             if(currentIndexWaypoint == waypoints.Length)
             {
-                EnemyDestroy();
+                Death();
             }
         }
         
     }
-
-    public void GiveDamage(int damage)
+    public override void Death()
     {
-        currentHp -= damage;
-        Debug.Log("Current HP enemy - " + currentHp);
-        if (currentHp <= 0)
-        {
-            EnemyDestroy();
-        }
-            
+        base.Death();
     }
 
-    public void EnemyDestroy()
+    public virtual void Initialize()
     {
-        Destroy(gameObject);
-        Destroy(GetComponent<HpBar>().hpText);
+
     }
 }

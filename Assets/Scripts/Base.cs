@@ -5,25 +5,25 @@ using UnityEngine.UI;
 
 public class Base : MonoBehaviour
 {
-    public Text hpBaseText;
+    public Text HpBaseText;
 
-    [SerializeField] int currentHp = 100;
-    public int damageFromEnemy = 10;
-
-    public GameObject gameLoseWindow;
+    [SerializeField] int _currentHp = 100;
+    public GameObject GameLoseWindow;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().EnemyDestroy();
-            GiveDamage();
+            Enemy enemy = other.GetComponent<Enemy>();
+            
+            GiveDamage(enemy.DamageToBase);
+            enemy.Death();
         }
     }
 
-    void GiveDamage()
+    void GiveDamage(int damage)
     {
-        currentHp -= damageFromEnemy;
-        hpBaseText.text = currentHp.ToString();
+        _currentHp -= damage;
+        HpBaseText.text = _currentHp.ToString();
     }
 }
