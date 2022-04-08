@@ -21,7 +21,7 @@ public abstract class Character : MonoBehaviour
 
     public virtual void Death()
     {
-        Debug.Log($"Gameobject {gameObject.name} is destroyed");
+        //Debug.Log($"Gameobject {gameObject.name} is destroyed");
         Destroy(gameObject);
     }
 }

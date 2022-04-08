@@ -14,7 +14,7 @@ public class TowerPlace : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        _gameController = GameObject.FindGameObjectWithTag("GameCotroller").
+        _gameController = GameObject.FindGameObjectWithTag("GameController").
             GetComponent<GameController>();
 
     }
@@ -22,15 +22,23 @@ public class TowerPlace : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         _towerPrefab = _gameController.GetCurrentTower();
-        int towerCost = _towerPrefab.GetComponent<Tower>().Cost;
-        if (IsFree && _gameController.CanBuy(towerCost))
+        if (_towerPrefab)
         {
-            _gameController.Buy(towerCost);
-            
-            Vector3 spawnTowerPosition = transform.position + new Vector3(0, YOffset, 0);
-            GameObject tower = Instantiate(_towerPrefab, spawnTowerPosition, Quaternion.identity);
-            IsFree = false;
+            int towerCost = _towerPrefab.GetComponent<Tower>().Cost;
+
+            if (IsFree && _gameController.CanBuy(towerCost))
+            {
+                _gameController.Buy(towerCost);
+
+                Vector3 spawnTowerPosition = transform.position + new Vector3(0, YOffset, 0);
+                GameObject tower = Instantiate(
+                    _towerPrefab,
+                    spawnTowerPosition,
+                    Quaternion.identity);
+                IsFree = false;
+            }
         }
+        
     }
 
 

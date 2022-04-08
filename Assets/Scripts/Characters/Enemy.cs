@@ -8,6 +8,7 @@ public class Enemy : Character
     public Transform[] waypoints;
     [SerializeField] public int DamageToBase; 
     [SerializeField] int currentIndexWaypoint = 0;
+    private bool isOnBase;
     public int Money;
 
     public virtual void Update()
@@ -24,8 +25,9 @@ public class Enemy : Character
         if(Vector3.Distance(transform.position, currentWayPoint.position) < 0.1)
         {
             currentIndexWaypoint++;
-            if(currentIndexWaypoint == waypoints.Length)
+            if(currentIndexWaypoint >= waypoints.Length)
             {
+                isOnBase = true;
                 Death();
             }
         }
@@ -35,7 +37,9 @@ public class Enemy : Character
     {
         GameController controller = GameObject.FindGameObjectWithTag("GameController").
             GetComponent<GameController>();
-        controller.AddMoney(Money);
+        if(!isOnBase)
+            controller.AddMoney(Money);
+        Debug.Log("isOnBase = " + isOnBase);
 
         Destroy(GetComponent<HpBar>().hpText);
         base.Death();

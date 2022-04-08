@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tower : Building
 {
+    [SerializeField] public int Damage, Cost;
+    
     public GameObject bulletPrefab;
     public GameObject pivotTower;
     public GameObject gunOfTower;
@@ -52,6 +54,11 @@ public class Tower : Building
         bullet.GetComponent<BulletMovement>().target = currentTarget;
 
         canShoot = true;
+
+    }
+
+    public virtual void Initialize()
+    {
 
     }
 }
