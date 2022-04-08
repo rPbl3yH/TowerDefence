@@ -8,7 +8,7 @@ public class BulletMovement : MonoBehaviour
     public Transform target;
     public float speed;
 
-    public int damage = 10;
+    public int damage;
 
     void Update()
     {

@@ -57,6 +57,7 @@ public abstract class Tower : Building
         audioSource.PlayOneShot(audioSource.clip);
 
         bullet.GetComponent<BulletMovement>().target = currentTarget;
+        bullet.GetComponent<BulletMovement>().damage = Damage;
 
         canShoot = true;
 
