@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 73374509}
   - component: {fileID: 73374508}
   - component: {fileID: 73374507}
+  - component: {fileID: 73374511}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -244,6 +245,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73374505}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &73374511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73374505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664d1b25bdd0248c7b8a643f3d39005f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefabs:
+  - {fileID: 732437650804981075, guid: dd400d1194d724e0d8b366e5b3f2d6c3, type: 3}
+  - {fileID: 732437650804981075, guid: 4ec7fb7f8c0374f39a85409679612adb, type: 3}
+  - {fileID: 732437650804981075, guid: 42453fd0233da4dfb8ce8ccff61a9797, type: 3}
+  CurrentEnemyPrefab: {fileID: 0}
+  _startTime: 2
+  _intervalSpawnTime: 4
+  _countEnemyWave: 5
+  _currentCountEnemy: 0
+  _waypointsOfSpawn:
+  - {fileID: 302619090}
+  - {fileID: 112532489}
+  - {fileID: 1874958891}
+  - {fileID: 1080700943}
+  - {fileID: 1359883142}
+  _canvas: {fileID: 1594917640}
 --- !u!1 &91458323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,8 +1147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30dc828f3b8d64dbc839b953af657dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHp: 0
+  CurrentHP: 0
   HpBaseText: {fileID: 1469855713}
-  _currentHp: 100
   GameLoseWindow: {fileID: 0}
 --- !u!64 &391170253
 MeshCollider:
@@ -1196,7 +1226,7 @@ GameObject:
   - component: {fileID: 412323504}
   - component: {fileID: 412323503}
   - component: {fileID: 412323502}
-  - component: {fileID: 412323501}
+  - component: {fileID: 412323505}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -1218,30 +1248,6 @@ Transform:
   m_Father: {fileID: 250384072}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &412323501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412323499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86e7b94522123486ea98a930a75862b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 732437650804981075, guid: dd400d1194d724e0d8b366e5b3f2d6c3, type: 3}
-  _startTime: 1
-  _intervalSpawnTime: 2
-  _countEnemyWave: 10
-  _currentCountEnemy: 0
-  _waypointsOfSpawn:
-  - {fileID: 276187608}
-  - {fileID: 2013281726}
-  - {fileID: 91458324}
-  - {fileID: 1233201510}
-  - {fileID: 1359883142}
-  _canvas: {fileID: 1594917640}
 --- !u!64 &412323502
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1305,6 +1311,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412323499}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &412323505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412323499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4b2ac0809874314b92e1eefcb56417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefabs:
+  - {fileID: 732437650804981075, guid: 42453fd0233da4dfb8ce8ccff61a9797, type: 3}
+  - {fileID: 732437650804981075, guid: dd400d1194d724e0d8b366e5b3f2d6c3, type: 3}
+  - {fileID: 732437650804981075, guid: 4ec7fb7f8c0374f39a85409679612adb, type: 3}
+  CurrentEnemyPrefab: {fileID: 0}
+  _startTime: 1
+  _intervalSpawnTime: 3
+  _countEnemyWave: 5
+  _currentCountEnemy: 0
+  _waypointsOfSpawn:
+  - {fileID: 276187608}
+  - {fileID: 2013281726}
+  - {fileID: 91458324}
+  - {fileID: 1233201510}
+  - {fileID: 1359883142}
+  _canvas: {fileID: 1594917640}
 --- !u!1001 &427791282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2228,6 +2262,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2300,6 +2335,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &975490926
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,6 +3600,7 @@ GameObject:
   - component: {fileID: 1728247225}
   - component: {fileID: 1728247224}
   - component: {fileID: 1728247223}
+  - component: {fileID: 1728247227}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -3577,7 +3629,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728247221}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86e7b94522123486ea98a930a75862b2, type: 3}
   m_Name: 
@@ -3653,6 +3705,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728247221}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1728247227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728247221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64f4ead8a7bf41e0bd9b8450a637467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefabs:
+  - {fileID: 732437650804981075, guid: dd400d1194d724e0d8b366e5b3f2d6c3, type: 3}
+  - {fileID: 732437650804981075, guid: 4ec7fb7f8c0374f39a85409679612adb, type: 3}
+  - {fileID: 732437650804981075, guid: 42453fd0233da4dfb8ce8ccff61a9797, type: 3}
+  CurrentEnemyPrefab: {fileID: 0}
+  _startTime: 1
+  _intervalSpawnTime: 3
+  _countEnemyWave: 3
+  _currentCountEnemy: 0
+  _waypointsOfSpawn:
+  - {fileID: 1359883142}
+  _canvas: {fileID: 1594917640}
 --- !u!1 &1835056984
 GameObject:
   m_ObjectHideFlags: 0

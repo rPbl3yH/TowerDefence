@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TowerPlace : MonoBehaviour
+public class TowerPlace : MonoBehaviour, IPointerClickHandler
 {
     public float yOffset = 0.2f;
 
     public bool isFree = true;
     public GameObject towerPrefab;
 
-       
-    private void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
         if (isFree)
         {

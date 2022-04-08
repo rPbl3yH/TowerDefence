@@ -32,6 +32,7 @@ public class Enemy : Character
     }
     public override void Death()
     {
+        Destroy(GetComponent<HpBar>().hpText);
         base.Death();
     }
 

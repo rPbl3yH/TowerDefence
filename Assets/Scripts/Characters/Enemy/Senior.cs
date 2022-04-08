@@ -10,12 +10,8 @@ public class Senior : Enemy
         Speed = 1;
     }
 
-    // Start is called before the first frame update
     void Awake()
     {
         Initialize();
-    }
-
-    // Update is called once per frame
-    
+    }    
 }

@@ -9,11 +9,6 @@ public class BulletMovement : MonoBehaviour
     public float speed;
 
     public int damage = 10;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

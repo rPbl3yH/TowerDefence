@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Base : MonoBehaviour
+public class Base : Building
 {
     public Text HpBaseText;
 
-    [SerializeField] int _currentHp = 100;
     public GameObject GameLoseWindow;
 
     private void OnTriggerEnter(Collider other)
@@ -16,14 +15,8 @@ public class Base : MonoBehaviour
         {
             Enemy enemy = other.GetComponent<Enemy>();
             
-            GiveDamage(enemy.DamageToBase);
+            TakeDamage(enemy.DamageToBase);
             enemy.Death();
         }
-    }
-
-    void GiveDamage(int damage)
-    {
-        _currentHp -= damage;
-        HpBaseText.text = _currentHp.ToString();
     }
 }

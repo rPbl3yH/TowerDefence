@@ -10,13 +10,10 @@ public class Middle : Enemy
         Speed = 2f;
     }
 
-
-    // Start is called before the first frame update
     void Awake()
     {
         Initialize();
     }
 
-    // Update is called once per frame
     
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Tower : Building
 {
     public GameObject bulletPrefab;
     public GameObject pivotTower;
@@ -17,13 +17,11 @@ public class Tower : MonoBehaviour
 
     [SerializeField] bool canShoot = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
