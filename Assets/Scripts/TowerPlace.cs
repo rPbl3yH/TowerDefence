@@ -5,18 +5,35 @@ using UnityEngine.EventSystems;
 
 public class TowerPlace : MonoBehaviour, IPointerClickHandler
 {
-    public float yOffset = 0.2f;
+    public float YOffset = 0.2f;
 
-    public bool isFree = true;
-    public GameObject towerPrefab;
+    public bool IsFree = true;
+    
+    private GameObject _towerPrefab;
+    private GameController _gameController;
+
+    private void Start()
+    {
+        _gameController = GameObject.FindGameObjectWithTag("GameCotroller").
+            GetComponent<GameController>();
+
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (isFree)
+        _towerPrefab = _gameController.GetCurrentTower();
+        int towerCost = _towerPrefab.GetComponent<Tower>().Cost;
+        if (IsFree && _gameController.CanBuy(towerCost))
         {
-            Vector3 spawnTowerPosition = transform.position + new Vector3(0, yOffset, 0);
-            GameObject tower = Instantiate(towerPrefab, spawnTowerPosition, Quaternion.identity);
-            isFree = false;
+            _gameController.Buy(towerCost);
+            
+            Vector3 spawnTowerPosition = transform.position + new Vector3(0, YOffset, 0);
+            GameObject tower = Instantiate(_towerPrefab, spawnTowerPosition, Quaternion.identity);
+            IsFree = false;
         }
     }
+
+
+
+    
 }

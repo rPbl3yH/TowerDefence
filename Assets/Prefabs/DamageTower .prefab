@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2211472853826228332}
   - component: {fileID: 2071996277257234840}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: 'DamageTower '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfad7f6e562045e8a4a5a20fe099176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHp: 0
+  CurrentHP: 0
   bulletPrefab: {fileID: 6864749510564332591, guid: d689f0035479744e49c1198fa6f9d630, type: 3}
   pivotTower: {fileID: 7631874245296845155}
   gunOfTower: {fileID: 8921437812849958148}
@@ -371,7 +373,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 43994feb8358b42ca8caad12b236e2ba, type: 2}
+  - {fileID: 2100000, guid: fc64ea334915842ba84ca1f0a7369439, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -417,8 +419,8 @@ GameObject:
   - component: {fileID: 6720328726689187495}
   - component: {fileID: 2541027907866096900}
   - component: {fileID: 1299738548669851914}
-  - component: {fileID: 7061355566098529815}
   - component: {fileID: 2776165825535578109}
+  - component: {fileID: 8412506991504843693}
   m_Layer: 0
   m_Name: ZoneTrigger
   m_TagString: Untagged
@@ -489,19 +491,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7061355566098529815
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7974093790753689839}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2776165825535578109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +505,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
   currentTarget: {fileID: 0}
+--- !u!135 &8412506991504843693
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974093790753689839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8225318734849512153
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,8 +545,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8225318734849512153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.543}
-  m_LocalScale: {x: 0.4047427, y: 0.6024701, z: 1.348243}
+  m_LocalPosition: {x: 0, y: 0, z: 0.62}
+  m_LocalScale: {x: 0.4047427, y: 0.6024701, z: 0.6695644}
   m_Children: []
   m_Father: {fileID: 1191994467634210098}
   m_RootOrder: 0
@@ -638,7 +640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8921437812849958148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.27}
+  m_LocalPosition: {x: 0, y: 0, z: 0.95}
   m_LocalScale: {x: 0.4047427, y: 0.6024701, z: 1.348243}
   m_Children: []
   m_Father: {fileID: 1191994467634210098}
@@ -704,5 +706,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 0.049682632}
   m_Center: {x: 0, y: 0, z: 0}

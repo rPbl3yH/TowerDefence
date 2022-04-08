@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    enum TypesOfTower
+    {
+
+    }
+
     [SerializeField] private Text _moneyText;
     [SerializeField] private int _money;
     
