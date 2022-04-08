@@ -6,6 +6,11 @@ public abstract class Building : MonoBehaviour
 {
     [SerializeField] public int MaxHp, CurrentHP;
 
+    private void Start()
+    {
+        CurrentHP = MaxHp;
+    }
+
     public virtual void TakeDamage(int damage)
     {
         CurrentHP -= damage;

@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370, y: -155}
+  m_AnchoredPosition: {x: -370, y: -110.25}
   m_SizeDelta: {x: 105, y: 80.8122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66822417
@@ -206,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 66822418}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 630325011}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: SetTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2211472853826228332, guid: 6be64914271694b779cd9e1a15eec6a7, type: 3}
+          m_ObjectArgumentAssemblyTypeName: Tower, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &66822418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,7 +1658,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost:'
+  m_Text: 'Cost: 50'
 --- !u!222 &457813618
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1786,7 +1798,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost:'
+  m_Text: 'Cost: 40'
 --- !u!222 &561057577
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2127,6 +2139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moneyText: {fileID: 2122644213}
   _money: 0
+  _currentTower: {fileID: 0}
+  _typeOfTowers:
+  - {fileID: 2494403611737149634, guid: 6be64914271694b779cd9e1a15eec6a7, type: 3}
+  - {fileID: 2494403611737149634, guid: d1c6b418c3a624836a38809fa565011d, type: 3}
+  - {fileID: 2494403611737149634, guid: 92db310b92ac54ac9ba0e5c3fe4b60b1, type: 3}
 --- !u!1 &647529219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,7 +3694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5377358, g: 0.27691028, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.11792451, b: 0.19028984, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3686,12 +3703,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3720,10 +3737,10 @@ RectTransform:
   m_Father: {fileID: 1594917644}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -80, y: -30}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1508294757
 GameObject:
@@ -4056,7 +4073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370, y: -63}
+  m_AnchoredPosition: {x: -370, y: -18.25}
   m_SizeDelta: {x: 105, y: 80.8122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1679103961
@@ -4102,7 +4119,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1679103962}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 630325011}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: SetTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2211472853826228332, guid: d1c6b418c3a624836a38809fa565011d, type: 3}
+          m_ObjectArgumentAssemblyTypeName: Tower, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1679103962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4178,7 +4207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370, y: 30}
+  m_AnchoredPosition: {x: -370, y: 74.75}
   m_SizeDelta: {x: 105, y: 80.8122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1694282145
@@ -4224,7 +4253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1694282146}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 630325011}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: SetTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2211472853826228332, guid: 92db310b92ac54ac9ba0e5c3fe4b60b1, type: 3}
+          m_ObjectArgumentAssemblyTypeName: Tower, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1694282146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4533,7 +4574,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost:'
+  m_Text: 'Cost: 30'
 --- !u!222 &1815294500
 CanvasRenderer:
   m_ObjectHideFlags: 0
