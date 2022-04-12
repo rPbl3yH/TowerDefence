@@ -14,17 +14,21 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private Text _moneyText;
     [SerializeField] private int _money;
-
+    private GameObject sphere;
     [SerializeField] private GameObject _currentTower = null;
     [SerializeField] private GameObject[] _typeOfTowers;
 
+    [SerializeField] Camera _camera;
+
     private void Start()
     {
-        _money = 100;
+        _money = 150;
+        
     }
 
     void Update()
     {
+
         _moneyText.text = _money.ToString();
     }
 
